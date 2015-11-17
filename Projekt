@@ -1,0 +1,43 @@
+public string Palindrom(string[] ord, bool längst)
+{
+  string ordet = "";
+  string baklänges = "";
+  string palindromer = "";
+  string palindromen = "";
+
+  for (int i = 0; i < ord.Length; i++) // Går igenom alla ord/fraser och ser om de är palindrom eller inte.
+  {
+    ordet = ord[i];
+    for (i = ordet.Length; 0 < i; i--)
+  {
+  baklänges += ordet[i - 1];
+  }
+    if (ordet == baklänges)
+    {
+      palindromer += ordet + " ";
+    }
+  }
+
+  string[] allaPalindrom = palindromer.Split(); // Lägger alla palindrom i en array.
+  int[] längd = new int[allaPalindrom.Length]; // Array för hur långa de olika palindromen är.
+
+  for (int i = 0; i < allaPalindrom.Length; i++) // Hittar längden på alla palindrom och lägger dom i en array.
+  {
+    palindromen = allaPalindrom[i];
+    längd[i] = palindromen.Length;
+  }
+
+  int max = längd.Max(); // Integer för längsta ordet.
+  int min = längd.Min(); // Integer för kortaste ordet.
+  string resultat = "";
+
+  if (längst)
+  {
+    resultat = allaPalindrom[max];
+  }
+  else
+  {
+    resultat = allaPalindrom[min];
+  }
+  return resultat;
+}
