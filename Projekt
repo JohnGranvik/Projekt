@@ -9,9 +9,9 @@ public string Palindrom(string[] ord, bool längst)
   {
     ordet = ord[i];
     for (i = ordet.Length; 0 < i; i--)
-  {
-  baklänges += ordet[i - 1];
-  }
+    {
+      baklänges += ordet[i - 1];
+    }
     if (ordet == baklänges)
     {
       palindromer += ordet + " ";
